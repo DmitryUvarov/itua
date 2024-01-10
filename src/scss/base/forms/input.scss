@@ -1,0 +1,59 @@
+//<INPUT>
+// Сніппет (HTML): inp
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.input {
+  width: 100%;
+  display: block;
+  padding: toRem(17) toRem(26);
+  border: 1px solid #ffc703;
+
+  border-radius: toRem(7);
+  background: #fff;
+
+  height: toRem(56);
+
+  color: #0b090a;
+  font-family: "Montserrat";
+  font-size: toRem(16);
+  font-weight: 600;
+  line-height: 135.4%; /* 21.664px */
+
+  &:hover,
+  &:focus {
+    outline: 2px solid #ffc703;
+  }
+
+  &::placeholder {
+    color: #919191;
+  }
+
+  &.error {
+    border: 2px solid #ff0303;
+    outline: 2px solid #ff0303;
+  }
+
+  &._form-focus {
+  }
+  &._form-error {
+  }
+}
+.input[placeholder]:not([data-placeholder-nohiden]) {
+  &::placeholder {
+    transition: opacity 0.3s;
+  }
+  &:focus::placeholder {
+    // opacity: 0;
+  }
+}
+
+textarea.input {
+  resize: none;
+  padding: 0px 0px;
+}

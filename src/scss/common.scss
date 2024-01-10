@@ -1,0 +1,106 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.maintitle {
+  color: #fff;
+  font-family: "Montserrat";
+
+  font-weight: 600;
+  line-height: 130%; /* 72.8px */
+  letter-spacing: -1.12px;
+
+  @media (min-width: $mobile) {
+    @include adaptiveValue("font-size", 48, 32, 0, 1180, 767);
+  }
+
+  @media (min-width: $pc2) {
+    @include adaptiveValue("font-size", 56, 48, 0, 1478, 1180);
+  }
+  font-size: toRem(24);
+
+  span {
+    background: linear-gradient(90deg, #ffc703 0%, #8b65fa 22.24%, #7250b4 64.46%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.title {
+  color: #0b090a;
+  font-family: "Montserrat";
+  font-size: toRem(40);
+  font-weight: 600;
+  line-height: 100%; /* 95% */
+  letter-spacing: -0.62px;
+
+  @media (max-width: $mobile) {
+    font-size: toRem(24);
+  }
+
+  @media (min-width: $mobile) {
+    font-size: toRem(32);
+  }
+  @media (min-width: $pc) {
+    font-size: toRem(40);
+  }
+
+  span {
+    color: #7250b4;
+  }
+}
+
+.navigation {
+  pointer-events: none;
+  display: flex;
+  gap: toRem(20);
+  &__button {
+    pointer-events: all;
+    width: toRem(24);
+    height: toRem(24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include adaptiveValue("font-size", 20, 20);
+
+    color: #bcbbbb;
+
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #7250b4;
+      }
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.4;
+    }
+  }
+}
+//========================================================================================================================================================
+
+%scrollbar {
+  /* Общие стили для скроллбара */
+  &::-webkit-scrollbar {
+    width: toRem(3); /* Ширина скроллбара */
+  }
+
+  /* Стили для ползунка (thumb) скроллбара */
+  &::-webkit-scrollbar-thumb {
+    background-color: #8b65fa; /* Цвет ползунка */
+    border-radius: toRem(2); /* Закругление углов ползунка */
+  }
+
+  /* Стили для трека (track) скроллбара */
+  &::-webkit-scrollbar-track {
+    background-color: #e2e2e2; /* Цвет трека */
+  }
+}
+
+//========================================================================================================================================================
+
+// .fancybox__container {
+//     max-width: none;
+// }
+
+//========================================================================================================================================================

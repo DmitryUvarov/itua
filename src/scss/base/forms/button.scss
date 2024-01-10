@@ -1,0 +1,99 @@
+//<BUTTONS (a.btn+tab)>
+// Сніппет (HTML): btn
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: toRem(10);
+  border-radius: toRem(7);
+  background: #ffc703;
+
+  padding: toRem(17) toRem(26);
+
+  color: #333;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: toRem(17);
+  @media (max-width: $pc) {
+    font-size: toRem(16);
+  }
+  font-weight: 600;
+  line-height: 135.4%; /* 23.018px */
+
+  min-height: toRem(56);
+
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover,
+    &:active {
+      background-color: #7250b4;
+      color: #fff;
+    }
+  }
+  &[disabled] {
+    cursor: no-drop;
+    color: #333;
+    background-color: #919191;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #919191;
+        color: #333;
+      }
+    }
+  }
+  &--fw {
+    width: 100%;
+  }
+}
+
+.button-line {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: toRem(10);
+
+  padding: toRem(17) toRem(26);
+
+  border-radius: 7px;
+  border: 1px solid #ffc703;
+  background: #fff;
+
+  color: #333;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: toRem(17);
+  @media (max-width: $pc) {
+    font-size: toRem(16);
+  }
+  font-weight: 600;
+  line-height: 135.4%; /* 23.018px */
+
+  min-height: toRem(59);
+
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover,
+    &:active {
+      background-color: #ffc703;
+    }
+  }
+
+  &[disabled] {
+    cursor: no-drop;
+    color: #333;
+    background-color: #919191;
+    @media (any-hover: hover) {
+      &:hover,
+      &:active {
+        background-color: #919191;
+        color: #333;
+      }
+    }
+  }
+
+  &::before {
+    font-size: toRem(21);
+  }
+}

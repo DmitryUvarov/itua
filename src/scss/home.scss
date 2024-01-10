@@ -1,0 +1,1697 @@
+//====================================================================================================
+
+.hero {
+  background: linear-gradient(270deg, #222123 0.7%, #0a0809 61.36%);
+
+  padding-top: toRem(40);
+
+  @media (max-width: $mobile) {
+    padding-top: toRem(30);
+    padding-bottom: toRem(57);
+  }
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+      margin: 0 toRem(-24);
+      gap: toRem(40);
+    }
+  }
+
+  &__breadcrumbs {
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+
+    @media (min-width: $mobile) {
+      flex: 1 1 auto;
+      padding: toRem(40) 0;
+    }
+    @media (max-width: $mobile) {
+      padding: 0 toRem(24);
+    }
+  }
+
+  &__title {
+    @media (min-width: $mobile) {
+      max-width: toRem(332);
+    }
+
+    @media (min-width: $pc2) {
+      max-width: toRem(540);
+    }
+
+    &:not(:last-child) {
+      @media (min-width: $mobile) {
+        @include adaptiveValue("margin-bottom", 76, 40, 0, 1180, 767);
+      }
+      @media (min-width: $pc2) {
+        @include adaptiveValue("margin-bottom", 53, 76, 0, 1478, 1180);
+      }
+      @media (max-width: $mobile) {
+        margin-bottom: toRem(30);
+        text-align: center;
+      }
+    }
+  }
+
+  &__button {
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+    @media (min-width: $pc) {
+      min-width: toRem(339);
+    }
+  }
+
+  &__image-ibg--contain {
+    position: relative;
+
+    padding-bottom: percent(468, 1400);
+
+    @media (min-width: $mobile) {
+      width: 537px;
+      height: 358px;
+
+      top: 0;
+      right: toRem(-100);
+      z-index: 1;
+    }
+    @media (min-width: $pc2) {
+      width: 684px;
+      height: 456px;
+      top: 0;
+      right: toRem(-52);
+    }
+    @media (min-width: $pc) {
+      flex: 0 0 percent(702, 1400);
+      width: auto;
+      height: auto;
+      top: auto;
+      right: auto;
+    }
+
+    @media (max-width: $pc2) {
+      position: absolute;
+    }
+
+    @media (max-width: $mobile) {
+      //   width: calc(100% + toRem(48));
+      width: 100%;
+      display: block;
+      margin: 0 toRem(-15);
+      position: relative;
+      //   left: toRem(-24);
+      padding-bottom: percent(247, 370);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+    }
+
+    &::before {
+      top: percent(157, 468);
+      left: percent(79, 702);
+      background-color: rgba(255, 199, 4, 0.73);
+      opacity: 0.77;
+      mix-blend-mode: screen;
+      filter: blur(109px);
+
+      width: percent(250, 702);
+      height: percent(250, 468);
+    }
+    &::after {
+      top: percent(67, 468);
+      left: percent(327, 702);
+      background-color: #9f79c8;
+      mix-blend-mode: screen;
+      filter: blur(89.28947448730469px);
+
+      width: percent(220, 702);
+      height: percent(220, 468);
+    }
+    img {
+      z-index: 2;
+    }
+  }
+
+  &__items {
+    padding: toRem(42) 0 toRem(30);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include adaptiveValue("gap", 24, 0, 0, 1478, 1180);
+
+    border-radius: toRem(5);
+
+    transform: translateY(toRem(62));
+
+    @media (max-width: $pc2) {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: toRem(42);
+      column-gap: toRem(0);
+
+      transform: translateY(30%);
+    }
+
+    @media (max-width: $mobile) {
+      row-gap: toRem(20);
+      column-gap: toRem(16);
+      transform: translateY(0);
+
+      padding-top: toRem(35);
+      padding-bottom: 0;
+    }
+
+    @media (min-width: $mobile) {
+      background: #0b090a;
+      border: toRem(1) solid #913aff;
+      box-shadow: 0px 16px 23px 0px rgba(114, 80, 180, 0.15);
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: $mobile) {
+    align-items: flex-start;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  &::after {
+    content: url("@img/hero/line-y.svg");
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 100%;
+  }
+  &::before {
+    content: url("@img/hero/line-x.svg");
+    width: toRem(185);
+    height: 1px;
+
+    top: calc(100% + toRem(24));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:not(:last-child) {
+    @media (min-width: $pc2) {
+      &::after {
+        display: block;
+      }
+    }
+  }
+
+  &:nth-child(odd) {
+    @media (min-width: $mobile) {
+      &::after {
+        display: block;
+      }
+    }
+  }
+  &:nth-child(1),
+  &:nth-child(2) {
+    @media (min-width: $mobile) {
+      &::before {
+        display: block;
+      }
+    }
+  }
+
+  &__ico {
+    width: toRem(90);
+    height: toRem(90);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: toRem(14);
+
+    @media (max-width: $mobile) {
+      width: toRem(40);
+      height: toRem(40);
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__text {
+    color: #fff;
+
+    font-family: "Montserrat";
+
+    font-weight: 500;
+    line-height: 160%; /* 32px */
+    letter-spacing: -0.4px;
+
+    @media (max-width: $pc) {
+      padding: 0 toRem(5);
+    }
+
+    @media (min-width: $pc2) {
+      @include adaptiveValue("font-size", 20, 17, 0, 1478, 1180);
+    }
+    @media (max-width: $mobile) {
+      @include adaptiveValue("font-size", 17, 14, 0, 767, 375);
+    }
+
+    @media (min-width: $mobile) and (max-width: $pc2) {
+      max-width: toRem(344);
+    }
+
+    @media (min-width: $mobile) {
+      text-align: center;
+    }
+
+    span {
+      color: #ffc703;
+    }
+  }
+}
+
+//====================================================================================================
+section.contact {
+  @include adaptiveValue("padding-top", 185, 80, 0, 767, 375);
+  @include adaptiveValue("padding-bottom", 120, 80);
+}
+
+.contact {
+  &__container {
+    position: relative;
+  }
+
+  &__wrapper {
+    border-radius: 8px;
+    background: #7250b4;
+
+    background-image: url("@img/contact/pattern01.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+
+    @media (max-width: $mobile) {
+      padding: toRem(40) toRem(20);
+    }
+    @media (min-width: $mobile) {
+      padding: toRem(60) toRem(40) 0 toRem(40);
+    }
+    @media (min-width: $pc) {
+      padding: toRem(60) toRem(80);
+    }
+
+    &_thank {
+      position: absolute;
+
+      height: 100%;
+      top: 0;
+
+      width: calc(100% - toRem(80));
+      left: toRem(40);
+      z-index: 3;
+
+      @media (max-width: $mobile) {
+        width: calc(100% - toRem(48));
+        left: toRem(24);
+      }
+
+      display: flex;
+      flex-direction: column;
+
+      @media (max-width: $pc2) {
+        .contact__image-ibg--contain {
+          width: toRem(280);
+          //   height: toRem(370);
+          flex: 1 1 auto;
+
+          margin-left: auto;
+          margin-right: auto;
+
+          &.image-02 {
+            @media (min-width: $pc2) {
+              width: toRem(593);
+            }
+            @media (min-width: $pc) {
+              width: toRem(637);
+            }
+
+            img {
+              object-position: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+
+    color: #fff;
+    font-family: "Montserrat";
+
+    font-weight: 600;
+    line-height: 160%;
+    letter-spacing: -0.8px;
+
+    margin-bottom: toRem(20);
+
+    @media (max-width: $mobile) {
+      font-size: toRem(24);
+    }
+
+    @media (min-width: $mobile) {
+      font-size: toRem(26);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(32);
+    }
+    @media (min-width: $pc) {
+      font-size: toRem(40);
+    }
+
+    span {
+      text-transform: uppercase;
+      color: #ffc703;
+    }
+  }
+
+  &__body {
+    @media (max-width: $pc2) {
+      display: flex;
+      justify-content: space-between;
+      column-gap: toRem(55);
+    }
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      row-gap: toRem(33);
+    }
+  }
+
+  &__form {
+    position: relative;
+    z-index: 2;
+    @media (min-width: $mobile) and (max-width: $pc) {
+      padding-bottom: toRem(60);
+    }
+    @media (max-width: $mobile) {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__image-ibg--contain {
+    @media (min-width: $pc2) {
+      position: absolute;
+      width: 376.263px;
+      height: 100%;
+
+      top: 0;
+
+      z-index: 1;
+
+      &.image-02 {
+        height: 100%;
+        padding: toRem(66) 0;
+        right: toRem(65);
+
+        @media (min-width: $pc2) {
+          width: toRem(593);
+          right: toRem(0);
+        }
+        @media (min-width: $pc) {
+          width: toRem(637);
+          right: toRem(65);
+        }
+
+        img {
+          object-position: center;
+        }
+      }
+    }
+
+    @media (min-width: $pc2) {
+      right: toRem(60);
+    }
+    @media (min-width: $pc) {
+      right: toRem(150);
+    }
+
+    @media (max-width: $pc2) {
+      flex: 0 0 toRem(279);
+
+      &.image-02 {
+        flex: 0 0 toRem(320);
+        img {
+          object-position: center;
+        }
+      }
+    }
+    @media (max-width: $mobile) {
+      display: none;
+
+      &.image-02 {
+        display: block;
+        flex: 0 1 auto;
+        padding-bottom: percent(203, 270);
+        img {
+          object-position: center;
+        }
+      }
+    }
+
+    img {
+      object-position: bottom;
+    }
+  }
+
+  &__thank {
+    padding: toRem(140) 0 toRem(119);
+
+    @media (min-width: $mobile) {
+      padding: toRem(10) 0 toRem(0);
+    }
+    @media (min-width: $pc2) {
+      padding: toRem(140) 0 toRem(119);
+    }
+  }
+
+  &__thank-title {
+    color: #ffc703;
+    font-family: "Montserrat";
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 160%; /* 128px */
+    letter-spacing: -1.6px;
+    text-transform: uppercase;
+
+    @media (max-width: $mobile) {
+      font-size: toRem(32);
+      margin-bottom: toRem(20);
+    }
+
+    @media (min-width: $mobile) {
+      font-size: toRem(60);
+      margin-bottom: toRem(10);
+      text-align: center;
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(80);
+      margin-bottom: toRem(50);
+      text-align: start;
+    }
+  }
+
+  &__thank-text {
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: toRem(20);
+    font-weight: 600;
+    line-height: 160%; /* 32px */
+    letter-spacing: -0.4px;
+
+    @media (max-width: $mobile) {
+      font-size: toRem(16);
+    }
+
+    @media (min-width: $mobile) {
+      text-align: center;
+    }
+    @media (min-width: $pc2) {
+      text-align: start;
+    }
+  }
+
+  &__image-ibg--contain {
+  }
+}
+.form-contact {
+  &__text {
+    color: #fff;
+    font-family: "Montserrat";
+    font-weight: 600;
+    line-height: 160%; /* 32px */
+    letter-spacing: -0.4px;
+
+    max-width: toRem(480);
+
+    margin-bottom: toRem(40);
+
+    @media (max-width: $mobile) {
+      font-size: toRem(14);
+    }
+    @media (min-width: $mobile) {
+      font-size: toRem(16);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(18);
+    }
+    @media (min-width: $pc) {
+      font-size: toRem(20);
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: toRem(20);
+
+    @media (min-width: $mobile) {
+      max-width: toRem(384);
+    }
+  }
+
+  &__error {
+    color: #ff0303;
+    font-family: "Montserrat";
+    font-size: toRem(14);
+    font-weight: 400;
+    line-height: 130%; /* 18.2px */
+    margin-top: toRem(8);
+  }
+
+  &__input {
+  }
+
+  &__button {
+    margin-top: toRem(20);
+    width: 100%;
+
+    @media (min-width: $mobile) {
+      max-width: toRem(384);
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.crm {
+  background: #0b0a0c;
+  @media (max-width: $mobile) {
+    padding: toRem(80) 0;
+  }
+
+  @media (min-width: $mobile) {
+    padding: toRem(100) 0;
+  }
+
+  @media (min-width: $pc) {
+    padding: toRem(120) 0;
+  }
+
+  &__container {
+  }
+
+  &__body {
+  }
+
+  &__subtitle {
+    color: #bcbbbb;
+    text-align: center;
+    font-family: Montserrat;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 24px */
+    letter-spacing: -0.4px;
+
+    @media (max-width: $mobile) {
+      font-size: toRem(14);
+
+      img {
+        max-width: toRem(106);
+      }
+    }
+
+    @media (min-width: $mobile) {
+      font-size: toRem(18);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(20);
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: toRem(16);
+
+    margin-bottom: toRem(10);
+  }
+
+  &__title {
+    text-align: center;
+    @include adaptiveValue("margin-bottom", 20, 30);
+  }
+
+  &__text {
+    text-align: center;
+
+    color: #fff;
+    font-family: "Montserrat";
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: -0.4px;
+
+    @media (max-width: $mobile) {
+      font-size: toRem(14);
+    }
+
+    @media (min-width: $mobile) {
+      font-size: toRem(18);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(20);
+    }
+
+    @include adaptiveValue("margin-bottom", 40, 50);
+  }
+
+  &__image {
+    max-width: toRem(1186);
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      max-width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &::before {
+      top: percent(266, 720);
+      left: percent(15, 1186);
+      background-color: rgba(255, 199, 4, 0.73);
+      opacity: 0.77;
+      mix-blend-mode: screen;
+      filter: blur(109px);
+
+      width: percent(500, 1186);
+      height: percent(500, 720);
+    }
+    &::after {
+      top: 0;
+      left: percent(680, 1186);
+      background-color: #9f79c8;
+      mix-blend-mode: screen;
+      filter: blur(89.28947448730469px);
+
+      width: percent(500, 1186);
+      height: percent(500, 720);
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 140, 80);
+    }
+  }
+
+  &__items {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: toRem(24);
+
+    counter-reset: num;
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: toRem(430) 1fr;
+    }
+
+    @media (max-width: $mobile) {
+      gap: toRem(16);
+      grid-template-columns: repeat(1fr);
+    }
+  }
+
+  &__item {
+  }
+}
+.item-crm {
+  position: relative;
+  border-radius: 8px;
+  background: rgba(127, 91, 213, 0.4);
+  backdrop-filter: blur(22.135173797607422px);
+
+  color: #fff;
+  font-family: "Montserrat";
+
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $mobile) {
+    padding: toRem(20);
+  }
+
+  @media (min-width: $mobile) {
+    padding: toRem(40) toRem(15);
+  }
+  @media (min-width: $pc2) {
+    padding: toRem(45) toRem(20);
+  }
+  @media (min-width: $pc) {
+    padding: toRem(60) toRem(20);
+  }
+
+  &::before {
+    content: counter(num);
+    counter-increment: num;
+    width: toRem(30);
+    height: toRem(30);
+    border-radius: 50%;
+    background-color: #ffc703;
+    color: #333;
+    font-family: "Montserrat";
+    font-size: toRem(20);
+    font-weight: 600;
+    line-height: 120%; /* 24px */
+    letter-spacing: -0.4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: toRem(20);
+    right: toRem(20);
+
+    @media (max-width: $mobile) {
+      width: toRem(25);
+      height: toRem(25);
+      font-size: toRem(14);
+    }
+  }
+
+  @media (min-width: $mobile) {
+    &:first-child {
+      grid-column: span 2;
+    }
+    &:last-child {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+    }
+  }
+  &__title {
+    font-weight: 600;
+    line-height: 110%; /* 44px */
+    letter-spacing: -0.3px;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 25, 20);
+    }
+
+    max-width: toRem(500);
+
+    @media (max-width: $mobile) {
+      font-size: toRem(18);
+    }
+
+    @media (min-width: $mobile) {
+      font-size: toRem(24);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(26);
+    }
+    @media (min-width: $pc) {
+      font-size: toRem(32);
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    line-height: 130%; /* 31.2px */
+    letter-spacing: -0.3px;
+
+    max-width: toRem(310);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 90, 20, 0, 1530, 767);
+    }
+
+    @media (max-width: $mobile) {
+      font-size: toRem(14);
+    }
+
+    @media (min-width: $mobile) {
+      font-size: toRem(16);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(18);
+    }
+    @media (min-width: $pc) {
+      font-size: toRem(24);
+    }
+  }
+
+  &__image {
+    margin-top: auto;
+    img {
+      max-width: 100%;
+    }
+    &_1 {
+      @media (min-width: $mobile) {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: absolute;
+
+        width: percent(526, 944);
+        height: percent(318, 430);
+
+        bottom: 0;
+        right: 0;
+      }
+      @media (max-width: $mobile) {
+        padding: 0 toRem(55);
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.partners {
+  padding-bottom: toRem(120);
+  @media (max-width: $mobile) {
+    padding-top: toRem(80);
+  }
+
+  @media (min-width: $mobile) {
+    padding-top: toRem(100);
+  }
+
+  @media (min-width: $pc) {
+    padding-top: toRem(120);
+  }
+  &__container {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 120, 80);
+    }
+  }
+
+  &__top {
+    margin-bottom: toRem(40);
+
+    @media (max-width: $mobile) {
+      margin-bottom: toRem(24);
+    }
+  }
+
+  &__title {
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    top: toRem(-70);
+    right: 0;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      justify-content: space-between;
+    }
+  }
+
+  &__items {
+  }
+
+  &__wrapper {
+    position: relative;
+    @media (max-width: $mobile) {
+      padding: 0 toRem(40);
+    }
+  }
+
+  &__item {
+    border-radius: 16px;
+    border: 1px solid #dadada;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $mobile) {
+      min-height: toRem(115);
+      padding: toRem(10) toRem(48);
+    }
+
+    @media (min-width: $mobile) {
+      min-height: toRem(75);
+      padding: toRem(10) toRem(40);
+    }
+
+    @media (min-width: $pc2) {
+      min-height: toRem(125);
+      padding: toRem(10) toRem(60);
+    }
+    @media (min-width: $pc) {
+      min-height: toRem(165);
+      padding: toRem(10) toRem(60);
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.author {
+  background-color: #0b090a;
+  @media (min-width: $pc2) {
+    overflow: hidden;
+  }
+  &__container {
+    position: relative;
+
+    padding-top: toRem(100);
+    padding-bottom: toRem(100);
+
+    @media (max-width: $pc2) {
+      padding-top: toRem(80);
+      padding-bottom: toRem(80);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: percent(16, 572);
+      left: percent(-150, 1478);
+      background: rgba(180, 145, 211, 0.3);
+
+      mix-blend-mode: hard-light;
+      filter: blur(100px);
+
+      width: percent(678, 1478);
+      height: percent(678, 572);
+      z-index: 1;
+
+      @media (max-width: $pc2) {
+        display: none;
+      }
+    }
+    &::after {
+      content: "";
+      background-image: url("@img/author/dots.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+
+      @include adaptiveValue("top", 30, 0, 0, 1478, 767);
+      @include adaptiveValue("right", -219, 0, 0, 1478, 767);
+
+      @include adaptiveValue("width", 330, 265, 0, 1478, 767);
+      @include adaptiveValue("height", 430, 345, 0, 1478, 767);
+
+      @media (max-width: $mobile) {
+        display: none;
+      }
+
+      z-index: 1;
+    }
+  }
+
+  &__title {
+    color: #fff;
+    font-family: "Montserrat";
+
+    font-weight: 600;
+    line-height: 130%; /* 62.4px */
+    letter-spacing: -0.96px;
+
+    text-align: center;
+
+    @media (max-width: $mobile) {
+      font-size: toRem(24);
+      margin-bottom: toRem(40);
+    }
+
+    @media (min-width: $mobile) {
+      font-size: toRem(32);
+      margin-bottom: toRem(60);
+    }
+
+    @media (min-width: $pc) {
+      font-size: toRem(48);
+      margin-bottom: toRem(34);
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: center;
+    gap: toRem(24);
+
+    position: relative;
+    z-index: 2;
+    @media (max-width: $pc2) {
+      flex-direction: column;
+    }
+  }
+
+  &__small-image {
+    @media (min-width: $pc2) {
+      display: none;
+    }
+    max-width: toRem(146);
+    margin-left: auto;
+    margin-right: auto;
+
+    position: absolute;
+    top: toRem(-73);
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width: $mobile) {
+      max-width: toRem(100);
+      top: toRem(-50);
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__image {
+    @media (min-width: $pc) {
+      flex: 0 0 percent(340, 1398);
+    }
+    @media (min-width: $pc2) {
+      flex: 0 0 percent(294, 1100);
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    @media (max-width: $pc2) {
+      display: none;
+    }
+  }
+
+  &__items {
+    @media (min-width: $pc) {
+      flex: 1 1 auto;
+    }
+    @media (min-width: $pc2) {
+      flex: 0 0 percent(538, 1100);
+      padding-top: toRem(48);
+    }
+  }
+
+  &__item {
+  }
+}
+.item-author {
+  display: flex;
+  align-items: center;
+
+  border-radius: 8px;
+  border: 1px solid #913aff;
+  filter: drop-shadow(0px 4px 18px rgba(30, 15, 55, 0.15));
+
+  &:not(:last-child) {
+    margin-bottom: toRem(30);
+  }
+
+  @media (max-width: $mobile) {
+    padding: toRem(16);
+    gap: toRem(8);
+  }
+
+  @media (min-width: $mobile) {
+    padding: toRem(16) toRem(15);
+    gap: toRem(8);
+  }
+
+  @media (min-width: $pc2) {
+    padding: toRem(16) toRem(20);
+  }
+
+  @media (min-width: $pc) {
+    padding: toRem(24) toRem(20);
+    gap: toRem(16);
+  }
+
+  &__ico {
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #7250b4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: toRem(10);
+    img {
+      max-width: 100%;
+    }
+
+    @media (max-width: $mobile) {
+      width: toRem(65);
+      height: toRem(65);
+    }
+
+    @media (min-width: $pc2) {
+      width: toRem(55);
+      height: toRem(55);
+    }
+
+    @media (min-width: $pc) {
+      width: toRem(65);
+      height: toRem(65);
+    }
+  }
+
+  &__text {
+    color: #fff;
+    font-family: "Montserrat";
+
+    font-weight: 400;
+    line-height: 160%; /* 38.4px */
+    letter-spacing: -0.48px;
+
+    @media (min-width: $pc2) {
+      font-size: toRem(18);
+    }
+
+    @media (min-width: $pc) {
+      font-size: toRem(24);
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.international {
+  &__container {
+  }
+
+  &__title {
+    margin-bottom: toRem(60);
+
+    @media (max-width: $mobile) {
+      margin-bottom: toRem(24);
+    }
+  }
+  &__body {
+    padding-top: toRem(100);
+    padding-bottom: toRem(100);
+
+    @media (max-width: $pc2) {
+      padding-top: toRem(80);
+      padding-bottom: toRem(80);
+    }
+
+    @media (min-width: $mobile) {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: #fff;
+        z-index: 2;
+      }
+      &::before {
+        left: calc(100% + toRem(15));
+      }
+      &::after {
+        right: calc(100% + toRem(15));
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    @media (max-width: $mobile) {
+      padding: 0 toRem(40);
+    }
+  }
+
+  &__items {
+    @media (max-width: $mobile) {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 110%;
+        top: -5%;
+        background-color: #fff;
+        z-index: 2;
+      }
+      &::before {
+        left: calc(100% + toRem(15));
+      }
+      &::after {
+        right: calc(100% + toRem(15));
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15.333px;
+    background: #fff;
+    box-shadow: 0px 7.667px toRem(15) 0px rgba(30, 15, 55, 0.15);
+
+    padding: toRem(60) toRem(20) toRem(40);
+
+    @media (max-width: $mobile) {
+      padding: toRem(40) toRem(20);
+    }
+  }
+
+  &__image {
+    @include adaptiveValue("margin-bottom", 50, 10, 0, 1478, 767);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 toRem(105);
+    padding-bottom: toRem(25);
+
+    border-bottom: 1px solid #ddd;
+
+    @media (max-width: $mobile) {
+      flex: 0 0 toRem(65);
+    }
+
+    img {
+      max-width: 100%;
+      @media (max-width: $mobile) {
+        max-width: toRem(150);
+      }
+    }
+  }
+
+  &__name {
+    color: #333;
+    font-family: "Montserrat";
+
+    font-weight: 600;
+    line-height: 110%; /* 35.2px */
+    letter-spacing: -0.3px;
+
+    text-align: center;
+
+    margin-bottom: toRem(20);
+
+    @media (max-width: $pc2) {
+      font-size: toRem(18);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(22);
+    }
+
+    @media (min-width: $pc) {
+      font-size: toRem(32);
+    }
+  }
+
+  &__text {
+    color: #333;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 160%; /* 38.4px */
+    letter-spacing: -0.48px;
+
+    flex: 1 1 auto;
+    margin-bottom: toRem(30);
+
+    @media (max-width: $pc2) {
+      font-size: toRem(14);
+      margin-bottom: toRem(24);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(18);
+    }
+
+    @media (min-width: $pc) {
+      font-size: toRem(24);
+    }
+  }
+
+  &__link {
+    @media (max-width: $pc2) {
+      font-size: toRem(14);
+      padding-left: toRem(5);
+      padding-right: toRem(5);
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    top: toRem(-90);
+    right: 0;
+    z-index: 3;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      justify-content: space-between;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.cases {
+  padding-top: toRem(100);
+  padding-bottom: toRem(100);
+
+  @media (max-width: $pc2) {
+    padding-top: toRem(30);
+    padding-bottom: toRem(65);
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__maintitle {
+    text-align: center;
+
+    @media (max-width: $pc2) {
+      margin-bottom: toRem(30);
+    }
+    @media (min-width: $pc2) {
+      margin-bottom: toRem(60);
+    }
+    @media (min-width: $pc) {
+      margin-bottom: toRem(40);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(24);
+    row-gap: toRem(60);
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: $pc) {
+      margin-bottom: toRem(32);
+    }
+    @media (min-width: $pc) {
+      margin-bottom: toRem(40);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  &__image-ibg {
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+    padding-bottom: percent(405, 460);
+
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    img {
+      transition: transform 0.3s ease 0s;
+    }
+
+    @media (max-width: $pc2) {
+      margin-bottom: toRem(24);
+    }
+
+    @media (min-width: $pc2) {
+      margin-bottom: toRem(24);
+    }
+    @media (min-width: $pc) {
+      margin-bottom: toRem(40);
+    }
+  }
+
+  &__title {
+    color: #0b090a;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 160%; /* 38.4px */
+    letter-spacing: -0.48px;
+
+    margin-bottom: toRem(16);
+
+    @media (max-width: $pc2) {
+      font-size: toRem(18);
+    }
+    @media (min-width: $pc2) {
+      font-size: toRem(24);
+    }
+  }
+
+  &__text {
+    color: #333;
+    font-family: Montserrat;
+    font-weight: 400;
+    line-height: 160%; /* 27.2px */
+    letter-spacing: -0.34px;
+
+    flex: 1 1 auto;
+
+    @media (max-width: $pc2) {
+      font-size: toRem(14);
+    }
+
+    @media (min-width: $pc2) {
+      font-size: toRem(16);
+    }
+    @media (min-width: $pc) {
+      font-size: toRem(17);
+    }
+  }
+
+  &__link {
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.bottom {
+  padding-top: toRem(100);
+  padding-bottom: toRem(100);
+
+  @media (max-width: $pc2) {
+    padding-top: toRem(60);
+    padding-bottom: toRem(80);
+  }
+
+  background-color: linear-gradient(180deg, rgba(131, 85, 223, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: url("@img/bottom/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    gap: toRem(24);
+
+    @media (max-width: $pc2) {
+      flex-direction: column;
+    }
+  }
+
+  &__main {
+    @media (min-width: $pc2) {
+      flex: 0 0 calc(50% - toRem(12));
+    }
+    @media (min-width: $pc) {
+      flex: 0 0 percent(581, 1398);
+    }
+  }
+
+  &__title {
+    margin-bottom: toRem(24);
+
+    @media (max-width: $mobile) {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    color: #0b090a;
+    font-family: Montserrat;
+    font-size: toRem(16);
+    font-weight: 400;
+    line-height: 160%; /* 25.6px */
+    letter-spacing: -0.32px;
+
+    @media (max-width: $mobile) {
+      font-size: toRem(14);
+    }
+    p {
+      &:not(:last-child) {
+        margin-bottom: toRem(16);
+      }
+    }
+  }
+
+  &__content {
+    max-height: toRem(495);
+    overflow-y: auto;
+    @extend %scrollbar;
+
+    border-radius: 8px 0px 0px 8px;
+    background: #ede7f8;
+    padding: toRem(18) toRem(24);
+
+    @media (min-width: $pc2) {
+      flex: 0 0 calc(50% - toRem(12));
+    }
+    @media (min-width: $pc) {
+      flex: 0 0 percent(738, 1398);
+    }
+    @media (max-width: $pc2) {
+      max-width: toRem(570);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__content-title {
+  }
+
+  &__block {
+    &:not(:last-child) {
+      margin-bottom: toRem(32);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #0b090a;
+      font-family: "Montserrat";
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 160%; /* 38.4px */
+      letter-spacing: -0.48px;
+
+      margin-bottom: toRem(12);
+
+      @media (max-width: $mobile) {
+        text-align: center;
+      }
+    }
+    p {
+      span {
+        color: #7250b4;
+        font-weight: 700;
+      }
+    }
+    p,
+    li,
+    ul {
+      &:not(:last-child) {
+        margin-bottom: toRem(16);
+      }
+    }
+    color: #0b090a;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%; /* 25.6px */
+    letter-spacing: -0.32px;
+
+    @media (max-width: $mobile) {
+      font-size: toRem(14);
+    }
+
+    li {
+      @include adaptiveValue("padding-left", 48, 20, 0, 1478, 767);
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: toRem(3);
+        height: toRem(3);
+        border-radius: 50%;
+        top: toRem(12);
+        @include adaptiveValue("left", 24, 5, 0, 1478, 767);
+        display: block;
+        background-color: #000;
+      }
+    }
+  }
+}
