@@ -139,10 +139,9 @@ function initSliders() {
       observeParents: true,
 
       speed: 500,
-      loop: true,
 
       navigation: {
-        prevEl: "international__navigation .button-prev",
+        prevEl: ".international__navigation .button-prev",
         nextEl: ".international__navigation .button-next",
       },
 

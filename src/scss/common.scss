@@ -74,6 +74,12 @@
 
     &.swiper-button-disabled {
       opacity: 0.4;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #bcbbbb;
+        }
+      }
     }
   }
 }
@@ -94,6 +100,45 @@
   /* Стили для трека (track) скроллбара */
   &::-webkit-scrollbar-track {
     background-color: #e2e2e2; /* Цвет трека */
+  }
+}
+
+//========================================================================================================================================================
+
+.breadcrumbs {
+  white-space: nowrap;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    color: #cacaca;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 120%; /* 18/15 */
+
+    &:not(:last-child) {
+      &::after {
+        content: "/";
+        margin: 0 toRem(22);
+      }
+    }
+  }
+
+  &__link {
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #7250b4;
+      }
+    }
+  }
+
+  &__current {
+    // color: #EC5027;
   }
 }
 
