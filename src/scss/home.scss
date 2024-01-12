@@ -294,9 +294,7 @@
     line-height: 160%; /* 32px */
     letter-spacing: -0.4px;
 
-    @media (max-width: $pc) {
-      padding: 0 toRem(5);
-    }
+    padding: 0 toRem(10);
 
     @media (min-width: $pc2) {
       @include adaptiveValue("font-size", 20, 17, 0, 1478, 1180);
